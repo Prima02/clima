@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=256,height=512,initial-scale=1.0">
+
 <title>PrimaPay Clima</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -13,7 +14,6 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
 }
 
 html,body{
@@ -24,36 +24,40 @@ html,body{
 
 body{
     position:relative;
-    color:#fff;
+    font-family:'Inter',sans-serif;
+    color:#ffffff;
 }
 
-/* BACKGROUND */
+/* Fundo */
 body::before{
     content:'';
     position:absolute;
     inset:0;
 
-    background:url('background.jpg') center center/cover no-repeat;
+    background:
+        url('background.jpg')
+        center center / cover no-repeat;
 
     z-index:-3;
 }
 
-/* Escurecimento leve */
+/* Overlay suave */
 body::after{
     content:'';
     position:absolute;
     inset:0;
 
-    background:linear-gradient(
-        to bottom,
-        rgba(0,0,0,.05),
-        rgba(0,0,0,.18)
-    );
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.02),
+            rgba(0,0,0,.12)
+        );
 
     z-index:-2;
 }
 
-/* LAYOUT */
+/* Container */
 .container{
     width:100%;
     height:100%;
@@ -61,137 +65,138 @@ body::after{
     display:flex;
     flex-direction:column;
 
-    padding:10px 8px 8px;
+    padding:14px;
 }
 
-/* LOGO */
+/* Logo */
 .logo-container{
     display:flex;
     justify-content:center;
     align-items:center;
 
-    margin-top:4px;
-    margin-bottom:10px;
-
-    flex-shrink:0;
+    margin-bottom:14px;
 }
 
 .logo-img{
-    width:145px;
+    width:128px;
     height:auto;
-    object-fit:contain;
 }
 
-/* CARD GLASS */
+/* Card Glass */
 .card{
 
     flex:1;
-
-    border-radius:22px;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(255,255,255,.18),
-            rgba(255,255,255,.08)
-        );
-
-    border:1px solid rgba(255,255,255,.35);
-
-    backdrop-filter:blur(22px);
-    -webkit-backdrop-filter:blur(22px);
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.35),
-        0 10px 30px rgba(0,0,0,.15);
 
     display:flex;
     flex-direction:column;
     justify-content:space-between;
 
-    padding:22px 18px;
+    padding:24px 22px;
+
+    border-radius:28px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.28);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.20);
 }
 
-/* CLOCK */
+/* Hora */
 .clock{
     text-align:center;
 }
 
 .time{
-    font-size:72px;
-    line-height:1;
+    font-size:56px;
     font-weight:800;
+    line-height:1;
     letter-spacing:-2px;
 }
 
 .date{
-    margin-top:12px;
+    margin-top:10px;
 
-    font-size:10px;
-    font-weight:500;
+    font-size:9px;
+    font-weight:400;
 
-    opacity:.95;
+    opacity:.92;
+
+    letter-spacing:.4px;
 }
 
-/* DIVIDERS */
+/* Linhas */
 .divider{
     width:72%;
     height:1px;
 
     margin:0 auto;
 
-    background:rgba(255,255,255,.20);
+    background:
+        rgba(255,255,255,.16);
 }
 
-/* WEATHER */
+/* Clima */
 .weather{
     text-align:center;
 }
 
 .icon{
-    font-size:62px;
+    font-size:54px;
     margin-bottom:14px;
 }
 
 .temp{
-    font-size:86px;
-    line-height:1;
+    font-size:68px;
     font-weight:800;
+    line-height:1;
 }
 
 .city{
-    margin-top:14px;
+    margin-top:16px;
 
-    font-size:22px;
-    font-weight:700;
+    font-size:12px;
+    font-weight:400;
+
+    letter-spacing:.3px;
 }
 
 .condition{
-    margin-top:10px;
+    margin-top:8px;
 
-    font-size:16px;
-    font-weight:500;
+    font-size:10px;
+    font-weight:300;
 
-    opacity:.95;
+    opacity:.9;
 }
 
-/* FOOTER */
+/* Rodapé */
 .footer{
     text-align:center;
 }
 
 .minmax{
-    font-size:22px;
-    font-weight:600;
+    font-size:9px;
+    font-weight:300;
+
+    letter-spacing:.8px;
+    text-transform:lowercase;
 }
 
 .brand{
-    margin-top:16px;
+    margin-top:18px;
 
-    font-size:10px;
-    font-weight:500;
+    font-size:8px;
+    font-weight:300;
 
-    opacity:.75;
+    opacity:.7;
+
+    letter-spacing:1px;
 }
 
 </style>
@@ -209,12 +214,10 @@ body::after{
     <!-- CARD -->
     <div class="card">
 
-        <!-- HORA -->
+        <!-- RELÓGIO -->
         <div class="clock">
             <div class="time" id="time">11:39</div>
-            <div class="date" id="date">
-                Sexta-Feira, 22 De Maio
-            </div>
+            <div class="date" id="date">sexta-feira, 22 de maio</div>
         </div>
 
         <div class="divider"></div>
@@ -222,13 +225,9 @@ body::after{
         <!-- CLIMA -->
         <div class="weather">
 
-            <div class="icon" id="icon">
-                ☁️
-            </div>
+            <div class="icon" id="icon">☁️</div>
 
-            <div class="temp" id="temp">
-                17°
-            </div>
+            <div class="temp" id="temp">17°</div>
 
             <div class="city">
                 Ouro Preto
@@ -246,7 +245,7 @@ body::after{
         <div class="footer">
 
             <div class="minmax" id="minmax">
-                Mín 13° | Máx 17°
+                mín 13° &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; máx 17°
             </div>
 
             <div class="brand">
@@ -272,20 +271,16 @@ function updateClock(){
             minute:'2-digit'
         });
 
-    const date =
+    document.getElementById('date').innerText =
         now.toLocaleDateString('pt-BR',{
             weekday:'long',
             day:'2-digit',
             month:'long'
         });
-
-    document.getElementById('date').innerText =
-        date.replace(/^\w/, c => c.toUpperCase());
 }
 
 setInterval(updateClock,1000);
 updateClock();
-
 
 /* CLIMA */
 async function getWeather(){
@@ -293,7 +288,7 @@ async function getWeather(){
     try{
 
         const response = await fetch(
-            "https://api.open-meteo.com/v1/forecast?latitude=-20.3856&longitude=-43.5036&current_weather=true&daily=temperature_2m_max,temperature_2m_min&timezone=America/Sao_Paulo"
+            'https://api.open-meteo.com/v1/forecast?latitude=-20.3856&longitude=-43.5036&current_weather=true&daily=temperature_2m_max,temperature_2m_min&timezone=America/Sao_Paulo'
         );
 
         const data = await response.json();
@@ -310,45 +305,50 @@ async function getWeather(){
         const min =
             Math.round(data.daily.temperature_2m_min[0]);
 
-        let icon = "☀️";
-        let condition = "Ensolarado";
+        let icon='☀️';
+        let condition='Ensolarado';
 
         if([1,2].includes(code)){
-            icon="🌤️";
-            condition="Parcialmente nublado";
+            icon='🌤️';
+            condition='Parcialmente nublado';
         }
 
         if(code===3){
-            icon="☁️";
-            condition="Nublado";
+            icon='☁️';
+            condition='Nublado';
         }
 
         if([45,48].includes(code)){
-            icon="🌫️";
-            condition="Neblina";
+            icon='🌫️';
+            condition='Neblina';
         }
 
         if([51,53,55,61,63,65,80,81,82].includes(code)){
-            icon="🌧️";
-            condition="Chuva";
+            icon='🌧️';
+            condition='Chuva';
         }
 
         if([95,96,99].includes(code)){
-            icon="⛈️";
-            condition="Tempestade";
+            icon='⛈️';
+            condition='Tempestade';
         }
 
-        document.getElementById('icon').innerText = icon;
-        document.getElementById('temp').innerText = temp + "°";
-        document.getElementById('condition').innerText = condition;
+        document.getElementById('icon').innerText =
+            icon;
 
-        document.getElementById('minmax').innerText =
-            `Mín ${min}° | Máx ${max}°`;
-
-    }catch(e){
+        document.getElementById('temp').innerText =
+            temp + '°';
 
         document.getElementById('condition').innerText =
-            "Sem conexão";
+            condition;
+
+        document.getElementById('minmax').innerText =
+            `mín ${min}°   |   máx ${max}°`;
+
+    }catch(error){
+
+        document.getElementById('condition').innerText =
+            'Sem conexão';
 
     }
 }
